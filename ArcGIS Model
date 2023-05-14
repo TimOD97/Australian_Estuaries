@@ -1,0 +1,8 @@
+import arcpy,
+    
+river_id = 0,
+with arcpy.da.UpdateCursor("Australia_Rivers_500Clip", [“segmentInd", "RiverID"]) as cursor:
+        for row in cursor:
+            if row[0] == 0:
+                river_id += 1
+            cursor.updateRow([row[0], river_id])
